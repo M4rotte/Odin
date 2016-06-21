@@ -1,0 +1,2 @@
+Create a separate file for the main program.
+Implement a `text` mode which produce a continuation of chains.
