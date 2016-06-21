@@ -103,10 +103,10 @@ class Odin:
             maxres = ''
         
         if (context != ''):
-            where = ' WHERE string LIKE "% '
+            where = ' WHERE string LIKE "%'
             words = context.split(" ")
-            where += ' %" OR string LIKE "% '.join(words)
-            where += ' %" '
+            where += '%" OR string LIKE "%'.join(words)
+            where += '%" '
         else:
             where = ' '
         if (order == "freq_desc"):

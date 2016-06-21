@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import Odin
@@ -29,6 +29,7 @@ argparser.add_argument("-M", "--max-results", metavar="INT", type=int, default=4
 argparser.add_argument("-C", "--context", metavar="STRING", default="", nargs=1,  help="Context to search with. It will be used in a WHERE clause \
                                                                                                     when loading strings from the database. Searching for strings \
                                                                                                     with any of the words provided with this argument. \
+                                                                                                    Words are searched inside other words : 'foo bar' → '%foo%' OR '%bar%'. \
                                                                                                     You may not use regular expressions there. \
                                                                                                     Apply to -n, -a and -c options.")                                                                                                      
 argparser.add_argument("-S", "--chain-size", metavar="INT", default=2, nargs="?",  help="Minimal number of words for a chain. \
@@ -36,7 +37,8 @@ argparser.add_argument("-S", "--chain-size", metavar="INT", default=2, nargs="?"
                                                                                                     
 argparser.add_argument("-E", "--chain-end", metavar="REGEXP", default="(.*)([A-Za-zéà ]+)(\.|\!|\?)$", nargs="?",\
                                                                                              help="Regexp to end a chain. \
-                                                                                                    Apply to -c option only.")
+                                                                                                   Default is '(.*)([A-Za-zéà ]+)(\.|\!|\?)( *)$' \
+                                                                                                   Apply to -c option only.")
 
 args = argparser.parse_args()
 
