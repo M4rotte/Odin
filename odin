@@ -26,10 +26,10 @@ argparser.add_argument("-M", "--max-results", metavar="INT", type=int, default=4
                                                                                                       Default is 4096. \
                                                                                                       This is useful on a big database. \
                                                                                                       Apply to -n, -a and -c options.")
-argparser.add_argument("-C", "--context", metavar="STRING", default="", nargs=1,  help="Context to search with. It will be used in a WHERE clause \
+argparser.add_argument("-C", "--context", metavar="STRING", default="", nargs="?",  help="Context to search with. It will be used in a WHERE clause \
                                                                                                     when loading strings from the database. Searching for strings \
                                                                                                     with any of the words provided with this argument. \
-                                                                                                    Words are searched inside other words : 'foo bar' → '%foo%' OR '%bar%'. \
+                                                                                                    Words are searched inside other words. \
                                                                                                     You may not use regular expressions there. \
                                                                                                     Apply to -n, -a and -c options.")                                                                                                      
 argparser.add_argument("-S", "--chain-size", metavar="INT", default=2, nargs="?",  help="Minimal number of words for a chain. \
