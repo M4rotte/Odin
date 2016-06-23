@@ -1,12 +1,12 @@
-= Odin
+# Odin
 
 Odin reads and writes shit.
 
-== positional arguments
+## positional arguments
 
     DBNAME                Name of database (default : "Odin")
 
-== optional arguments
+## optional arguments
 
     -h, --help            show this help message and exit
     -f FILE [FILE ...], --file FILE [FILE ...]
