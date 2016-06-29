@@ -60,7 +60,7 @@ class Odin:
                              # Drop the following strings if they appear as single word. (don't remove the empty string…) :
                              WORD_DROP           = ('',)+(':',';','«','»','-','—','–','»,','=','+','*'),\
                              CHAIN_MINWORDS      = 2,\
-                             CHAIN_END           = '(.*)([A-Za-zéà ]+)(\.|\!|\?)( *)$',\
+                             CHAIN_END           = '(.*)([A-Za-zéà ]+)(\.|\!|\?)( |\.|\"*)$',\
                              LOAD_ORDER          = 'freq_desc',\
                              MAX_RESULTS         = -1,\
                              CONTEXT             = ''\

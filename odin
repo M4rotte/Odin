@@ -37,7 +37,7 @@ argparser.add_argument("-S", "--chain-size", metavar="INT", default=2, nargs="?"
                                                                                                     
 argparser.add_argument("-E", "--chain-end", metavar="REGEXP", default="(.*)([A-Za-zéà ]+)(\.|\!|\?)$", nargs="?",\
                                                                                              help="Regexp to end a chain. \
-                                                                                                   Default is '(.*)([A-Za-zéà ]+)(\.|\!|\?)( *)$' \
+                                                                                                   Default is '(.*)([A-Za-zéà ]+)(\.|\!|\?)( |\.|\"*)$' \
                                                                                                    Apply to -c option only.")
 
 args = argparser.parse_args()
