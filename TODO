@@ -1,2 +1,2 @@
-Create a separate file for the main program.
 Implement a `text` mode which produce a continuation of chains.
+Find a bette default regexp for end of chains.
