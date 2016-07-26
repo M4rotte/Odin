@@ -18,7 +18,6 @@ import sqlite3
 from collections import deque
 
 __version__ = "0.4"
-
 __author__  = "Marotte"
 __licence__ = "GPL"
 __status__  = "Experimental"
@@ -60,7 +59,7 @@ class Odin:
                              # Drop the following strings if they appear as single word. (don't remove the empty string…) :
                              WORD_DROP           = ('',)+(':',';','«','»','-','—','–','»,','=','+','*'),\
                              CHAIN_MINWORDS      = 2,\
-                             CHAIN_END           = r'(.*)([A-Za-zéà ]+)(\.|\!|\?)( |\.|\"*)$',\
+                             CHAIN_END           = '(.*)([A-Za-zéà ]+)(\.|\!|\?)( |\.|\"*)$',\
                              LOAD_ORDER          = 'freq_desc',\
                              MAX_RESULTS         = -1,\
                              CONTEXT             = ''\
@@ -352,7 +351,7 @@ class Odin:
                     self.string = ''
                     self.fetchDB()
                     return self.string
-       
+
         return self.string
  
     def getChain(self,regexp = '(.*) ',minwords = 2, end = '(.*)([A-Za-zéà ]+)(\.|\!|\?)$'):
@@ -362,7 +361,6 @@ class Odin:
         self.chain = self.string
         hook = ' '.join(self.string.split(' ')[-2:])
         end = re.compile(self.CHAIN_END)
-        prev_chain = ''
         
         while (hook != '' and len(self.chain) < 512 and len(self.strings) > 0):
 
@@ -392,12 +390,12 @@ class Odin:
                 print("Match end: "+self.string, file=sys.stderr)
                 self.chain = self.chain+' '+' '.join(self.string.split(" ")[len(hook.split(' ')):])
                 print("Chain after: "+self.chain+"\n",file=sys.stderr)
-                prev_chain = self.chain
                 break
                              
             else:
                 self.chain = self.chain+' '+' '.join(self.string.split(" ")[len(hook.split(' ')):])
                 print("Chain after: "+self.chain+"\n",file=sys.stderr)
+                
                 hook = ' '.join(self.string.split(' ')[-2:])
                 prev_chain = self.chain
                 continue
